@@ -1,7 +1,10 @@
 package com.hellspear.dagger2practice.parts;
 
+import javax.inject.Inject;
+
 public class Wheels {
-    public Wheels(Tires tires, Rims rims){
+    @Inject
+    public Wheels(){
 
     }
 }

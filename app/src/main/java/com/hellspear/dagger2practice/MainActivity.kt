@@ -11,9 +11,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val component = DaggerCarComponent.create() //compile time dagger created dagger+carcomponent
 
-
-
+        car = component.car
         car.drive()
 
     }

@@ -1,5 +1,10 @@
 package com.hellspear.dagger2practice;
 
-public interface CarComponent {
+import dagger.Component;
+
+@Component
+public interface CarComponent {  //<- Injector
+
+    Car getCar();
 
 }
