@@ -12,7 +12,11 @@ class DieselEngineModule(hp: Int) {
     private var horsePower: Int = hp
 
     @Provides
-    fun provideEngine(): Engine{
-        return DieselEngine(horsePower)
+    fun provideHorsePower(): Int{
+        return horsePower
+    }
+    @Provides
+    fun provideEngine(engine: DieselEngine): Engine{
+        return engine
     }
 }
