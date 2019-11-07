@@ -2,7 +2,6 @@ package com.hellspear.dagger2practice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hellspear.dagger2practice.components.DaggerActivityComponent
 import com.hellspear.dagger2practice.modules.DieselEngineModule
 import com.hellspear.dagger2practice.parts.*
 import javax.inject.Inject
@@ -26,11 +25,14 @@ class MainActivity : AppCompatActivity() {
 //                .engineCapacity(1400)
 //                .build()
 
-        val component = DaggerActivityComponent.builder()
-            .horsePower(120)
-            .engineCapacity(1400)
-            .appComponent((application as ExampleApp).appComponent)
-            .build()
+//        val component = DaggerActivityComponent.builder()
+//            .horsePower(120)
+//            .engineCapacity(1400)
+//            .appComponent((application as ExampleApp).appComponent)
+//            .build()
+
+        val component = (application as ExampleApp).appComponent
+            .getActivityComponent(DieselEngineModule(120))
 
         component.inject(this)
         car1.drive()
