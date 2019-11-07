@@ -7,4 +7,6 @@ public interface CarComponent {  //<- Injector
 
     Car getCar();
 
+    void inject(MainActivity mainActivity); //Should declare directly. shouldn't be Activity mainActivity
+
 }

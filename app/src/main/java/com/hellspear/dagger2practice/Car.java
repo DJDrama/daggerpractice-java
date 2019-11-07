@@ -11,10 +11,11 @@ import javax.inject.Inject;
 public class Car {
     private static final String TAG = "Car";
 
+    //engine and wheels are dependency of CAR
     private Engine engine;
     private Wheels wheels;
 
-    @Inject
+    @Inject //-> let dagger provide this dependency(Constructor Injection)
     public Car(Engine engine, Wheels wheels) { //dagger should know engine and wheels depencies
         this.engine = engine;
         this.wheels = wheels;
