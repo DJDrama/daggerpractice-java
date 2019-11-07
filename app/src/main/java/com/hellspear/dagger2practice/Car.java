@@ -8,14 +8,12 @@ import com.hellspear.dagger2practice.parts.Wheels;
 
 import javax.inject.Inject;
 
-//https://www.youtube.com/watch?v=wJkHYBf8VkA&list=PLrnPJCHvNZuA2ioi4soDZKz8euUQnJW65&index=2
+@PerActivity
 public class Car {
     private static final String TAG = "Car";
 
-
-
     //engine and wheels are dependency of CAR
-    Engine engine; //Field
+    private Engine engine; //Field
     private Wheels wheels;
     private Driver driver;
 
