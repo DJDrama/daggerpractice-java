@@ -1,5 +1,11 @@
 package com.hellspear.dagger2practice.parts;
 
-public class Tires {
+import android.util.Log;
 
+public class Tires {
+    private static final String TAG = "Car";
+
+    public void inflate() {
+        Log.d(TAG, "inflate: Tires inflated");
+    }
 }
