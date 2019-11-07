@@ -9,7 +9,9 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject //Dagger does not support injection into private fields->cannot make "PRIVATE" of "FINAL"
-    lateinit var car: Car
+    lateinit var car1: Car
+    @Inject
+    lateinit var car2: Car
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,8 @@ class MainActivity : AppCompatActivity() {
                 .engineCapacity(1400)
                 .build()
         component.inject(this)
-        car.drive()
+        car1.drive()
+        car2.drive()
 
     }
 }

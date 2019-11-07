@@ -4,10 +4,12 @@ import com.hellspear.dagger2practice.modules.PetrolEngineModule;
 import com.hellspear.dagger2practice.modules.WheelsModule;
 
 import javax.inject.Named;
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
 
+@Singleton //singleton only works for each component.
 @Component (modules = {WheelsModule.class, PetrolEngineModule.class}) //puts this module into this component
 public interface CarComponent {  //<- Injector
 

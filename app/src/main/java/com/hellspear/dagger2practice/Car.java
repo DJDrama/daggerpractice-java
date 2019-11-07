@@ -12,12 +12,16 @@ import javax.inject.Inject;
 public class Car {
     private static final String TAG = "Car";
 
+
+
     //engine and wheels are dependency of CAR
-    @Inject Engine engine; //Field
+    Engine engine; //Field
     private Wheels wheels;
+    private Driver driver;
 
     @Inject //-> let dagger provide this dependency(Constructor Injection)
-    public Car(Engine engine, Wheels wheels) { //dagger should know engine and wheels depencies
+    public Car(Driver driver, Engine engine, Wheels wheels) { //dagger should know engine and wheels depencies
+        this.driver=driver;
         this.engine = engine;
         this.wheels = wheels;
     }
@@ -30,6 +34,6 @@ public class Car {
 
     public void drive(){
         engine.start();
-        Log.d(TAG, "driving...");
+        Log.d(TAG, driver + " drives " + this);
     }
 }
