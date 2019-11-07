@@ -8,7 +8,11 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-abstract class DieselEngineModule {
-    @Binds
-    abstract fun bindEngine(engine: DieselEngine): Engine
+class DieselEngineModule(hp: Int) {
+    private var horsePower: Int = hp
+
+    @Provides
+    fun provideEngine(): Engine{
+        return DieselEngine(horsePower)
+    }
 }

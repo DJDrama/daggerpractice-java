@@ -2,6 +2,7 @@ package com.hellspear.dagger2practice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hellspear.dagger2practice.modules.DieselEngineModule
 import com.hellspear.dagger2practice.parts.*
 import javax.inject.Inject
 
@@ -14,9 +15,12 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val component = DaggerCarComponent.create() //compile time dagger created dagger+carcomponent
-        component.inject(this) //<-- Field Injection. take our activity and check fields
-        //car = component.car
+        val component =
+            DaggerCarComponent
+                .builder()
+                .dieselEngineModule(DieselEngineModule(hp = 100))
+                .build()
+        component.inject(this)
         car.drive()
 
     }
