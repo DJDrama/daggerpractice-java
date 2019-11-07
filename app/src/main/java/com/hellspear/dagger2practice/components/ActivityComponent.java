@@ -25,17 +25,26 @@ public interface ActivityComponent {  //<- Injector
     void inject(MainActivity mainActivity); //Should declare directly. shouldn't be Activity mainActivity
 
     //@Component.Builder
-    @Subcomponent.Builder
-    interface Builder {
-        @BindsInstance
-        Builder horsePower(@Named("horse power") int horsePower);
+//    @Subcomponent.Builder
+//    interface Builder {
+//        @BindsInstance
+//        Builder horsePower(@BindsInstance @Named("horse power") int horsePower);
+//
+//        @BindsInstance
+//        Builder engineCapacity(@BindsInstance @Named("engine capacity") int engineCapacity);
+//
+//        //Builder appComponent(AppComponent component);
+//
+//        ActivityComponent build();
+//    }
 
-        @BindsInstance
-        Builder engineCapacity(@Named("engine capacity") int engineCapacity);
-
-        //Builder appComponent(AppComponent component);
-
-        ActivityComponent build();
+    @Subcomponent.Factory
+    interface Factory {
+        ActivityComponent create(
+                @BindsInstance
+                @Named("horse power") int horsePower,
+                @BindsInstance
+                @Named("engine capacity") int engineCapacity);
 
     }
 }

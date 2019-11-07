@@ -8,12 +8,18 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public abstract class DriverModule {
+public class DriverModule {
+
+    private String driverName;
+
+    public DriverModule(String driverName) {
+        this.driverName = driverName;
+    }
 
     @Provides
     @Singleton
-    static Driver getDriver(){
-        return new Driver();
+    Driver getDriver(){
+        return new Driver(this.driverName);
     }
 
 }

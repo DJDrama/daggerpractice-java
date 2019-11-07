@@ -17,6 +17,14 @@ public interface AppComponent {
 
     //Factory method
    // ActivityComponent getActivityComponent(DieselEngineModule dieselEngineModule);
-    ActivityComponent.Builder getActivityComponentBuilder();
+   /// ActivityComponent.Builder getActivityComponentBuilder();
+    ActivityComponent.Factory getActivityComponentFactory();
 
+
+    @Component.Factory
+    interface Factory{
+        AppComponent create(
+                DriverModule driverModule
+        );
+    }
 }

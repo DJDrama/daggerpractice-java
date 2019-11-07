@@ -32,10 +32,10 @@ class MainActivity : AppCompatActivity() {
 //            .build()
 
         val component = (application as ExampleApp).appComponent
-            .activityComponentBuilder
-            .horsePower(150)
-            .engineCapacity(1400)
-            .build()
+            .activityComponentFactory.create(150, 1400)
+//            .horsePower(150)
+//            .engineCapacity(1400)
+//            .build()
 
 //        val component = (application as ExampleApp).appComponent
 //            .getActivityComponent(DieselEngineModule(120))

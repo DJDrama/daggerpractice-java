@@ -5,6 +5,7 @@ import android.app.Application;
 import com.hellspear.dagger2practice.components.ActivityComponent;
 import com.hellspear.dagger2practice.components.AppComponent;
 import com.hellspear.dagger2practice.components.DaggerAppComponent;
+import com.hellspear.dagger2practice.modules.DriverModule;
 
 public class ExampleApp extends Application {
 
@@ -14,7 +15,7 @@ public class ExampleApp extends Application {
     public void onCreate() {
         super.onCreate();
 
-        component = DaggerAppComponent.create();
+        component = DaggerAppComponent.factory().create(new DriverModule("haha"));
         //component
     }
 
